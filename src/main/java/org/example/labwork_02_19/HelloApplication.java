@@ -1,5 +1,6 @@
 package org.example.labwork_02_19;
 
+import javafx.animation.FadeTransition;
 import javafx.animation.PauseTransition;
 import javafx.application.Application;
 import javafx.fxml.FXML;
@@ -24,7 +25,7 @@ public class HelloApplication extends Application {
         stage.setScene(scene);
         stage.show();
 
-        PauseTransition delay = new PauseTransition(Duration.seconds(5));
+        PauseTransition delay = new PauseTransition(Duration.seconds(3));
         delay.setOnFinished(event -> {
             try {
                 displayLoginScreen();
