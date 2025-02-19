@@ -1,10 +1,12 @@
 package org.example.labwork_02_19;
 
+import javafx.animation.PauseTransition;
 import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.io.IOException;
 import java.sql.Time;
@@ -21,8 +23,16 @@ public class HelloApplication extends Application {
         stage.setTitle("Welcome!");
         stage.setScene(scene);
         stage.show();
-        
-        displayLoginScreen();
+
+        PauseTransition delay = new PauseTransition(Duration.seconds(5));
+        delay.setOnFinished(event -> {
+            try {
+                displayLoginScreen();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+        delay.play();
     }
 
     public void displayLoginScreen() throws IOException {
